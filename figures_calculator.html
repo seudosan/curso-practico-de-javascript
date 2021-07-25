@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es_ES">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./figures_calculator.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Figures Calculator</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header-figure">
+      <img src="#" alt="Page icon">
+      <img src="#" alt="Page name icon">
+    </h1>
+    <div class="header-content">
+      <h2 class="header-content__title">Figures Calculator</h2>
+      <p class="header-content__subtitle">Description</p>
+    </div>
+  </header>
+  <main class="figure">
+    <section class="figure-display">
+      <img class="figure-display__img" src="#" alt="Figure image type">
+      <h4 class="figure-display__name">Figure Name</h4>
+      <div class="figure-display__selector">
+        <input type="radio" name="figure" id="square_figure" value="circle" checked class="input-radio__checked">
+        <label for="square_figure" class="input-radio__name">Cuadrado</label>
+        <input type="radio" name="figure" id="triangle_figure" value="square" class="input-radio__checked">
+        <label for="triangle_figure" class="input-radio__name">Triángulo</label>
+        <input type="radio" name="figure" id="circle_figure" value="circle" class="input-radio">
+        <label for="circle_figure" class="input-radio__name">Círculo</label>
+        <input type="radio" name="figure" id="hexagon_figure" value="hexagon" class="input-radio">
+        <label for="hexagon_figure" class="input-radio__name">Hexágono</label>
+      </div>
+    </section>
+    <section class="figure-calculator">
+      <input type="number" name="measure" id="square_measure" class="figure-calculator__input">
+      <div class="figure-calculator__selector">
+        <input type="radio" name="calculator" id="perimeter_calculator" value="perimeter" checked class="input-radio__checked">
+        <label for="perimeter_calculator" class="input-radio__name">Perímetro</label>
+        <input type="radio" name="calculator" id="area_calculator" value="area" class="input-radio__checked">
+        <label for="area_calculator" class="input-radio__name">Área</label>
+      </div>
+      <button name="button">Calcular perímetro</button>
+    </section>
+    <section class="figure-result">
+      <h4>Resultado:</h4>
+      <p>...</p>
+    </section>
+  </main>
+  <script src="./figures_calculator.js"></script>
+</body>
+</html>
