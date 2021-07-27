@@ -14,41 +14,67 @@
 <body>
   <header class="header">
     <h1 class="header-figure">
-      <img src="#" alt="Page icon">
-      <img src="#" alt="Page name icon">
+      <img src="./assets/images/figure-icon.svg" alt="Page icon" tabindex="0">
+      <img src="./assets/images/figure-name.svg" alt="Page name icon">
     </h1>
     <div class="header-content">
-      <h2 class="header-content__title">Figures Calculator</h2>
-      <p class="header-content__subtitle">Description</p>
+      <h2 class="header-content__title">Una calculadora de figuras</h2>
+      <p class="header-content__description">Selecciona la forma y juega con los valores. ¡Que te diviertas!</p>
     </div>
   </header>
   <main class="figure">
+    <h4 class="section__title">Figura</h4>
     <section class="figure-display">
-      <img class="figure-display__img" src="#" alt="Figure image type">
-      <h4 class="figure-display__name">Figure Name</h4>
+      <img class="figure-display__img" src="./assets/images/square-img.svg" alt="Figure image type" id="figure_img">
       <div class="figure-display__selector">
-        <input type="radio" name="figure" id="square_figure" value="circle" checked class="input-radio__checked">
-        <label for="square_figure" class="input-radio__name">Cuadrado</label>
-        <input type="radio" name="figure" id="triangle_figure" value="square" class="input-radio__checked">
-        <label for="triangle_figure" class="input-radio__name">Triángulo</label>
-        <input type="radio" name="figure" id="circle_figure" value="circle" class="input-radio">
-        <label for="circle_figure" class="input-radio__name">Círculo</label>
-        <input type="radio" name="figure" id="hexagon_figure" value="hexagon" class="input-radio">
-        <label for="hexagon_figure" class="input-radio__name">Hexágono</label>
+        <div class="input-radio">
+          <input type="radio" name="figure" id="square_figure" value="square" checked class="input-radio__checked">
+          <label for="square_figure" class="input-radio__name">Cuadrado</label>
+        </div>
+        <div class="input-radio">
+          <input type="radio" name="figure" id="triangle_figure" value="triangle" class="input-radio__checked">
+          <label for="triangle_figure" class="input-radio__name">Triángulo</label>
+        </div>
+        <div class="input-radio">
+          <input type="radio" name="figure" id="circle_figure" value="circle" class="input-radio">
+          <label label for="circle_figure" class="input-radio__name">Círculo</label>
+        </div>
+        <div class="input-radio">
+          <input type="radio" name="figure" id="hexagon_figure" value="hexagon" class="input-radio">
+          <label for="hexagon_figure" class="input-radio__name">Hexágono</label>
+        </div>    
       </div>
     </section>
+    <h4 class="section__title">Entradas</h4>
     <section class="figure-calculator">
-      <input type="number" name="measure" id="square_measure" class="figure-calculator__input">
-      <div class="figure-calculator__selector">
-        <input type="radio" name="calculator" id="perimeter_calculator" value="perimeter" checked class="input-radio__checked">
-        <label for="perimeter_calculator" class="input-radio__name">Perímetro</label>
-        <input type="radio" name="calculator" id="area_calculator" value="area" class="input-radio__checked">
-        <label for="area_calculator" class="input-radio__name">Área</label>
+      <div class="figure-calculator__data" id="square_data">
+        <div class="input-text">
+          <label for="square_measure">Lado:</label>
+          <input type="number" name="square_measure" id="square_measure" class="figure-calculator__input">
+        </div>
       </div>
-      <button name="button">Calcular perímetro</button>
+      <!-- <div class="figure-calculator__data hide" id="triangle_data">
+        <label for="triangle_a_side">Lado A</label>
+        <input type="number" name="triangle_a_side" id="triangle_a_side" class="figure-calculator__input">
+        <label for="triangle_base">Base</label>
+        <input type="number" name="triangle_base" id="triangle_base" class="figure-calculator__input">
+        <label for="triangle_c_side">Lado C</label>
+        <input type="number" name="triangle_c_side" id="triangle_c_side" class="figure-calculator__input">
+      </div> -->
+      <div class="figure-calculator__selector">
+        <div class="input-radio">
+          <input type="radio" name="calculator" id="perimeter_calculator" value="perimeter" checked class="input-radio__checked">
+          <label for="perimeter_calculator" class="input-radio__name">Perímetro</label>
+        </div>
+        <div class="input-radio">
+          <input type="radio" name="calculator" id="area_calculator" value="area" class="input-radio__checked">
+          <label for="area_calculator" class="input-radio__name">Área</label>
+        </div>
+      </div>
+      <button name="button" id="calculator_button" class="figure-calculator__button">CALCULAR</button>
     </section>
+    <h4 class="section__title">Resultados</h4>
     <section class="figure-result">
-      <h4>Resultado:</h4>
       <p>...</p>
     </section>
   </main>
