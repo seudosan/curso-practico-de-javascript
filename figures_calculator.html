@@ -38,29 +38,32 @@
         <div class="input-radio">
           <input type="radio" name="figure" id="circle_figure" value="circle" class="input-radio">
           <label label for="circle_figure" class="input-radio__name">Círculo</label>
-        </div>
-        <div class="input-radio">
-          <input type="radio" name="figure" id="hexagon_figure" value="hexagon" class="input-radio">
-          <label for="hexagon_figure" class="input-radio__name">Hexágono</label>
-        </div>    
+        </div> 
       </div>
     </section>
     <h4 class="section__title">Entradas</h4>
-    <section class="figure-calculator">
-      <div class="figure-calculator__data" id="square_data">
+    <section class="figure-calculator" id="square">
+      <p class="figure-calculator__description">Ingrese cualquier lado del cuadrado para calcular su área.</p>
+      <div class="figure-calculator__data square__data">
         <div class="input-text">
           <label for="square_measure">Lado:</label>
           <input type="number" name="square_measure" id="square_measure" class="figure-calculator__input">
         </div>
       </div>
-      <!-- <div class="figure-calculator__data hide" id="triangle_data">
-        <label for="triangle_a_side">Lado A</label>
-        <input type="number" name="triangle_a_side" id="triangle_a_side" class="figure-calculator__input">
-        <label for="triangle_base">Base</label>
-        <input type="number" name="triangle_base" id="triangle_base" class="figure-calculator__input">
-        <label for="triangle_c_side">Lado C</label>
-        <input type="number" name="triangle_c_side" id="triangle_c_side" class="figure-calculator__input">
-      </div> -->
+      <div class="figure-calculator__data hide triangle__data">
+        <div class="input-text">
+          <label for="triangle_a_side">Lado A</label>
+          <input type="number" name="triangle_a_side" id="triangle_a_side" class="figure-calculator__input">
+        </div>
+        <div class="input-text">
+          <label for="triangle_base">Base</label>
+          <input type="number" name="triangle_base" id="triangle_base" class="figure-calculator__input">
+        </div>
+        <div class="input-text">
+          <label for="triangle_c_side">Lado C</label>
+          <input type="number" name="triangle_c_side" id="triangle_c_side" class="figure-calculator__input">
+        </div>
+      </div>
       <div class="figure-calculator__selector">
         <div class="input-radio">
           <input type="radio" name="calculator" id="perimeter_calculator" value="perimeter" checked class="input-radio__checked">
@@ -75,7 +78,7 @@
     </section>
     <h4 class="section__title">Resultados</h4>
     <section class="figure-result">
-      <p>...</p>
+      <p id="result" class="figure-result__last-result">...</p>
     </section>
   </main>
   <script src="./figures_calculator.js"></script>

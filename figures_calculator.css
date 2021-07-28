@@ -62,10 +62,22 @@ body {
   flex-direction: column;
   padding: 12px 16px;
 }
+.figure-calculator__description {
+  font-size: 1.6rem;
+  height: 80px;
+  padding: 0 16px;
+}
 .figure-calculator__data {
-  display: flex;
+  display: none;
   flex-direction: column;
+  gap: 8px;
   padding: 12px 16px;
+}
+#square > .square__data {
+  display: flex;
+}
+#triangle > .triangle__data {
+  display: flex;
 }
 .figure-calculator__selector {
   display: flex;
@@ -93,6 +105,14 @@ body {
 .figure-result {
   padding: 12px 16px;
 }
+.figure-result__last-result {
+  font-size: 1.6rem;
+  background-color: white;
+  border-radius: 4px;
+  border: solid 1px #80D500;
+  padding: 8px 16px;
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.2);
+}
 .input-radio {
   display: flex;
   flex-direction: row;
@@ -108,7 +128,8 @@ body {
   font-size: 1.6rem;
 }
 .input-text > input {
-  width: 50px;
+  padding: 6px 8px;
+  width: 80px;
 }
 .hide {
   display: none;
