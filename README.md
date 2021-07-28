@@ -1,4 +1,4 @@
-# curso-practico-de-javascript
+# Curso Práctico de Javascript
 
 ...
 
@@ -6,4 +6,12 @@
 
 - First step: Define formulas.
 - Second step: Implement the formulas in JavaScript.
-- Third step: Create functions
+- Third step: Create functions.
+- Fourth step: Integrate HTML, CSS and JavaScript. 
+
+## Workshop #2: Percentages and Discounts
+
+- First step: Define formulas.
+- Second step: Implement the formulas in JavaScript.
+- Third step: Create functions.
+- Fourth step: Integrate HTML, CSS and JavaScript.
