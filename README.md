@@ -15,3 +15,10 @@
 - Second step: Implement the formulas in JavaScript.
 - Third step: Create functions.
 - Fourth step: Integrate HTML, CSS and JavaScript.
+
+## Workshop #3: Mean, Median and Mode
+
+- First step: Define formulas.
+- Second step: Implement the formulas in JavaScript.
+- Third step: Create functions.
+- Fourth step: Integrate HTML, CSS and JavaScript.
