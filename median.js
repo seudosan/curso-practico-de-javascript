@@ -14,7 +14,7 @@ const getArithmeticMeanOf = list => {
   return mean;
 }
 const getMedian = list => {
-  const orderList = list.sort((a,b) => a- b);
+  const orderList = list.sort((a,b) => a - b);
   const half = parseInt(orderList.length / 2);
   let median;
   if(isPar(orderList)) {
