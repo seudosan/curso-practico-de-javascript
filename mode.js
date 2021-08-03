@@ -1,17 +1,37 @@
-const list = [1,0,3,4,10,1,2,4,10,10,1,2,4,5,7,1,1,23,,5,1,23,0,3,4,2,3];
+const list = [1,2,2,3,3,3,4,4,4];
 
-const getHigherReps = list => {
+const isUndefined = element => typeof(element) === "undefined";
+
+const countNumbersOf = numberList => {
   let objectList = {};
-  list.map(element => {
-    objectList[element] ? objectList[element] += 1 : objectList[element] = 1; 
+
+  numberList.map( number => {
+    if(!isUndefined(objectList[number])) { 
+      objectList[number] += 1 }
+    else { 
+      objectList[number] = 1; 
+    }
   });
-  let arrayList = Object.entries(objectList).sort((a,b) => a[1] - b[1]);
-//
-  const highestNumber = arrayList[arrayList.length - 1][1];
-  let mode = arrayList.filter(e => e[1] === highestNumber);
-  return mode.forEach(e => {
-    console.log(`Number: ${e[0]} with ${e[1]} reps.`);
-  })
+
+  return objectList;
 }
 
-getHigherReps(list);
+const sortFromSmallestToLargest = object => {
+  const objectLikeArray = Object.entries(object);
+  const orderedList = objectLikeArray.sort((a,b) => a[1] - b[1]);
+  
+  return orderedList;
+} 
+
+const getTheModeOf = numberList => {
+  const countedNumbers = countNumbersOf(numberList);
+  const orderedCountedNumbers = sortFromSmallestToLargest(countedNumbers);
+  const HIGHEST_REPETITION = orderedCountedNumbers[orderedCountedNumbers.length - 1][1];
+  const mode = orderedCountedNumbers.filter(e => e[1] === HIGHEST_REPETITION);
+
+  return mode;
+}
+
+console.log(getTheModeOf(list));
+
+// Output: { 0: ["3", 3], 1: ["4", 3] }
