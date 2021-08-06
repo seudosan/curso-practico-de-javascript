@@ -1,12 +1,5 @@
 const list = [1, 2, 3, 4, 5, 6, 8, 9]
-const isPar = list => {
-  if (list.length % 2 === 0) {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
+const isPar = list => (list.length % 2 === 0);
 const getArithmeticMeanOf = list => {
   let summedValues = list.reduce((accumulator , currentElement) => accumulator + currentElement);
   length = list.length;

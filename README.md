@@ -22,3 +22,10 @@
 - Second step: Implement the formulas in JavaScript.
 - Third step: Create functions.
 - Fourth step: Integrate HTML, CSS and JavaScript.
+
+## Workshop #5: Salaries and Top 10
+
+- First step: Define formulas.
+- Second step: Implement the formulas in JavaScript.
+- Third step: Create functions.
+- Fourth step: Integrate HTML, CSS and JavaScript.
