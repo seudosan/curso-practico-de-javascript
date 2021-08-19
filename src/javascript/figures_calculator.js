@@ -15,9 +15,9 @@ const NODE = {
   "data_container": document.getElementsByClassName("figure-calculator")[0]
 }
 const FIGURES_IMAGE = {
-  "square": "./assets/images/square-img.svg",
-  "triangle": "./assets/images/triangle-img.svg",
-  "circle": "./assets/images/triangle-img.svg"
+  "square": "../images/square-img.svg",
+  "triangle": "../images/triangle-img.svg",
+  "circle": "../images/triangle-img.svg"
 }
 const FIGURES = {
   "square": document.getElementById("square_figure"),

@@ -7,9 +7,9 @@ const WORKSHOP = {
 const FRAMES = {
   'container': document.querySelector('iframe'),
   'te': document.querySelector('iframe').contentWindow,
-  'figures': './figures_calculator.html',
-  'percentages': './percentages_and_discounts.html',
-  'mode': './mode.html',
+  'figures': './src/workshops/figures_calculator.html',
+  'percentages': './src/workshops/percentages_and_discounts.html',
+  'mode': './src/workshops/mode.html',
 }
 
 FRAMES.container.onload = () => {
