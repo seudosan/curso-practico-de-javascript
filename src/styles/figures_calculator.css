@@ -79,6 +79,9 @@ body {
 #triangle > .triangle__data {
   display: flex;
 }
+#circle > .circle__data {
+  display: flex;
+}
 .figure-calculator__selector {
   display: flex;
   flex-direction: row;

@@ -1,10 +1,12 @@
 const APP = document.getElementsByTagName("body")[0];
+const PI = 3.14159265359;
 // Figures data
 let 
   square_measure = document.getElementById("square_measure"),
   triangle_a_side = document.getElementById("triangle_a_side"),
   triangle_base = document.getElementById("triangle_base"),
   triangle_c_side = document.getElementById("triangle_c_side"),
+  circle_radio = document.getElementById("circle_radio");
   calculator_button = document.getElementById("calculator_button"),
   calculator_result = document.getElementById("result");
 const NODE = {
@@ -17,7 +19,7 @@ const NODE = {
 const FIGURES_IMAGE = {
   "square": "../images/square-img.svg",
   "triangle": "../images/triangle-img.svg",
-  "circle": "../images/triangle-img.svg"
+  "circle": "../images/circle-img.svg"
 }
 const FIGURES = {
   "square": document.getElementById("square_figure"),
@@ -66,9 +68,23 @@ const FORMULAS = {
       let b_side = parseFloat(triangle_c_side.value);
       let base = parseFloat(triangle_base.value);
       let height = Math.sqrt(Math.pow(a_side, 2) - Math.pow((base/2), 2));
-      console.log(height)
+      
       let triangle_area = (height * base) / 2;
       return `${triangle_area} cm²`;
+    }
+  },
+  "circle": {
+    "perimeter": () => {
+      let radio = parseFloat(circle_radio.value);
+      let perimeter = (radio * 2) * PI;
+
+      return `${perimeter.toFixed(2)} cm²`;
+    },
+    "area": () => {
+      let radio = parseFloat(circle_radio.value);
+      let area = Math.pow(radio, 2) * PI;
+
+      return `${area.toFixed(2)} cm²`;
     }
   }
 }
