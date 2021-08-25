@@ -4,27 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/normalize.css">
+  <link rel="stylesheet" href="../styles/workshops.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c3a58b1809.js" crossorigin="anonymous"></script>
   <title>Percentages and Discounts</title>
 </head>
 <body>
-  <header>
-    <h1>Porcentajes y Descuentos</h1>
-    <p>Calculadora de precios con descuentos</p>
+  <header class="header">
+    <h2 class="header__title">Porcentajes y Descuentos</h2>
+    <p class="header__description">Obten el valor total de cualquier cantidad con su descuento.</p>
   </header>
-  <main>
-    <p>Ingresa el precio del producto y su porcentaje de descuento para obtener su valor real.</p>
-    <label for="price">Precio:</label>
-    <input type="number" id="price">
-    <br>
-    <br>
-    <label for="discount">Descuento:</label>
-    <input type="number" id="discount">
-    <br>
-    <br>
-    <button id="calculate">Calcular</button>
-    <br>
-    <br>
-    <p id="result"></p>
+  <main class="main">
+    <section class="section">
+      <h4 class="section__title">Entradas</h4>
+      <div class="section__container">
+        <p class="section__description">Ingresa el precio del producto y su porcentaje de descuento para obtener su valor real.</p>
+        <div class="input">
+          <label class="input__label" for="price">Precio:</label>
+          <div class="input__container">
+            <input class="input__number" name="price" placeholder="0" id="price">
+            <i class="input__error-icon fas fa-times"></i>
+          </div>
+        </div>
+        <div class="input">
+          <label class="input__label" for="discount">Descuento:</label>
+          <div class="input__container">
+            <input class="input__number" name="discount" placeholder="0" id="discount">
+            <i class="input__error-icon fas fa-times"></i>
+          </div>
+        </div>
+      </div>  
+    </section>
+    <section class="section">
+      <h4 class="section__title">Resultados</h4>
+      <div class="section__container">
+        <p class="section__description" id="description">Esperando valores...</p>
+        <h5 class="result" id="result"></h5>
+      </div>
+    </section>
+    
+    
   </main>
   <script src="../javascript/percentages_and_discounts.js"></script>
 </body>

@@ -129,7 +129,7 @@ body {
 }
 .input-text > input {
   padding: 6px 8px;
-  width: 80px;
+  width: 100px;
 }
 .hide {
   display: none;
