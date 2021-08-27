@@ -5,86 +5,88 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/normalize.css">
-  <link rel="stylesheet" href="../styles/figures_calculator.css">
+  <link rel="stylesheet" href="../styles/workshops.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c3a58b1809.js" crossorigin="anonymous"></script>
   <title>Figures Calculator</title>
 </head>
 <body>
   <header class="header">
-    <!-- <h1 class="header-figure">
-      <img src="../images/figure-icon.svg" alt="Page icon" tabindex="0">
-      <img src="../images/figure-name.svg" alt="Page name icon">
-    </h1> -->
-    <div class="header-content">
-      <h2 class="header-content__title">Una calculadora de figuras</h2>
-      <p class="header-content__description">Selecciona la forma y juega con los valores. ¡Que te diviertas!</p>
-    </div>
+    <h2 class="header__title">Una calculadora de figuras</h2>
+    <p class="header__description">Selecciona la forma y juega con los valores. ¡Que te diviertas!</p>
   </header>
-  <main class="figure">
-    <h4 class="section__title">Figura</h4>
-    <section class="figure-display">
-      <img class="figure-display__img" src="../images/square-img.svg" alt="Figure image type" id="figure_img">
-      <div class="figure-display__selector">
-        <div class="input-radio">
-          <input type="radio" name="figure" id="square_figure" value="square" checked class="input-radio__checked">
-          <label for="square_figure" class="input-radio__name">Cuadrado</label>
+  <main class="main">
+    <section class="section">
+      <h4 class="section__title">Figura</h4>
+      <div class="section__container">
+        <p class="section__description">Operar con:</p>
+        <div class="selector__container">
+          <button class="selector__button selector__button--active __figure_button__" data-figure="square">Cuadrado</button>
+          <button class="selector__button __figure_button__" data-figure="triangle">Triángulo</button>
+          <button class="selector__button __figure_button__" data-figure="circle">Circulo</button>
         </div>
-        <div class="input-radio">
-          <input type="radio" name="figure" id="triangle_figure" value="triangle" class="input-radio__checked">
-          <label for="triangle_figure" class="input-radio__name">Triángulo</label>
-        </div>
-        <div class="input-radio">
-          <input type="radio" name="figure" id="circle_figure" value="circle" class="input-radio">
-          <label label for="circle_figure" class="input-radio__name">Círculo</label>
-        </div> 
+        <img class="section__img" src="../images/square-img.svg" alt="Figure image type" id="figure_img">
       </div>
     </section>
-    <h4 class="section__title">Entradas</h4>
-    <section class="figure-calculator" id="square">
-      <p class="figure-calculator__description">Ingrese cualquier lado del cuadrado para calcular su área.</p>
-      <div class="figure-calculator__data square__data">
-        <div class="input-text">
-          <label for="square_measure">Lado:</label>
-          <input type="number" name="square_measure" id="square_measure" class="figure-calculator__input">
+    <section class="section">
+      <h4 class="section__title">Entradas</h4>
+      <div class="section__container">
+        <p class="section__description" id="input_description">Ingrese cualquier lado del cuadrado para calcular su área.</p>
+        <div class="ghost-box ghost-box--visible" data-figure="square">
+          <div class="input">
+            <label class="input__label" for="square_a">Lado:</label>
+            <div class="input__container">
+              <input class="input__number" type="number" name="square_a" id="square_a">
+              <i class="input__error-icon fas fa-times"></i>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-box ghost-box--hidden" data-figure="triangle">
+          <div class="input">
+            <label class="input__label" for="triangle_a">Lado A:</label>
+            <div class="input__container">
+              <input class="input__number" type="number" name="triangle_a" id="triangle_a">
+              <i class="input__error-icon fas fa-times"></i>
+            </div>
+          </div>
+          <div class="input">
+            <label class="input__label" for="triangle_b">Base:</label>
+            <div class="input__container">
+              <input class="input__number" type="number" name="triangle_b" id="triangle_b">
+              <i class="input__error-icon fas fa-times"></i>
+            </div>
+          </div>
+          <div class="input">
+            <label class="input__label" for="triangle_c">Lado C:</label>
+            <div class="input__container">
+              <input class="input__number" type="number" name="triangle_c" id="triangle_c">
+              <i class="input__error-icon fas fa-times"></i>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-box ghost-box--hidden" data-figure="circle">
+          <div class="input">
+            <label class="input__label" for="circle_r">Radio:</label>
+            <div class="input__container">
+              <input class="input__number" type="number" name="circle_r" id="circle_r">
+              <i class="input__error-icon fas fa-times"></i>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="figure-calculator__data hide triangle__data">
-        <div class="input-text">
-          <label for="triangle_a_side">Lado A</label>
-          <input type="number" name="triangle_a_side" id="triangle_a_side" class="figure-calculator__input">
-        </div>
-        <div class="input-text">
-          <label for="triangle_base">Base</label>
-          <input type="number" name="triangle_base" id="triangle_base" class="figure-calculator__input">
-        </div>
-        <div class="input-text">
-          <label for="triangle_c_side">Lado C</label>
-          <input type="number" name="triangle_c_side" id="triangle_c_side" class="figure-calculator__input">
-        </div>
-      </div>
-      <div class="figure-calculator__data hide circle__data">
-        <div class="input-text">
-          <label for="circle_radio">Radio</label>
-          <input type="number" name="circle_radio" id="circle_radio" class="figure-calculator__input">
-        </div>
-      </div>
-      <div class="figure-calculator__selector">
-        <div class="input-radio">
-          <input type="radio" name="calculator" id="perimeter_calculator" value="perimeter" checked class="input-radio__checked">
-          <label for="perimeter_calculator" class="input-radio__name">Perímetro</label>
-        </div>
-        <div class="input-radio">
-          <input type="radio" name="calculator" id="area_calculator" value="area" class="input-radio__checked">
-          <label for="area_calculator" class="input-radio__name">Área</label>
-        </div>
-      </div>
-      <button name="button" id="calculator_button" class="figure-calculator__button">CALCULAR</button>
     </section>
-    <h4 class="section__title">Resultados</h4>
-    <section class="figure-result">
-      <p id="result" class="figure-result__last-result">...</p>
+    <section class="section">
+      <h4 class="section__title">Resultados</h4>
+      <div class="section__container">
+        <p class="section__description">Calcular el:</p>
+        <div class="selector__container">
+          <button class="selector__button selector__button--active __type_button__" data-type="perimeter" id="perimeter_button">Perímetro</button>
+          <button class="selector__button __type_button__" data-type="area" id="area_button">Área</button>
+        </div>
+        <h5 class="result" id="result"></h5>
+      </div>
     </section>
   </main>
   <script src="../javascript/figures_calculator.js"></script>
