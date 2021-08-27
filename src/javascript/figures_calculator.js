@@ -1,141 +1,162 @@
-const APP = document.getElementsByTagName("body")[0];
+const APP = document.querySelector("body");
 const PI = 3.14159265359;
-// Figures data
-let 
-  square_measure = document.getElementById("square_measure"),
-  triangle_a_side = document.getElementById("triangle_a_side"),
-  triangle_base = document.getElementById("triangle_base"),
-  triangle_c_side = document.getElementById("triangle_c_side"),
-  circle_radio = document.getElementById("circle_radio");
-  calculator_button = document.getElementById("calculator_button"),
-  calculator_result = document.getElementById("result");
-const NODE = {
-  "figure_image": document.getElementById("figure_img"),
-  "calculator_description": document.getElementsByClassName("figure-calculator__description")[0],
-  "figure_selector": document.getElementsByClassName("figure-display__selector")[0],
-  "operation_type": document.getElementsByClassName("figure-calculator__selector")[0],
-  "data_container": document.getElementsByClassName("figure-calculator")[0]
-}
-const FIGURES_IMAGE = {
-  "square": "../images/square-img.svg",
-  "triangle": "../images/triangle-img.svg",
-  "circle": "../images/circle-img.svg"
-}
-const FIGURES = {
-  "square": document.getElementById("square_figure"),
-  "triangle": document.getElementById("triangle_figure"),
-  "circle": document.getElementById("circle_figure")
-};
-
-const CALCULATOR_TYPE = {
+const figures_buttons = document.querySelectorAll(".__figure_button__");
+const types_buttons = document.querySelectorAll(".__type_button__");
+const inputs_boxes = document.querySelectorAll(".ghost-box");
+const figure_image = document.getElementById("figure_img");
+const inputs = document.querySelectorAll("INPUT");
+const result = document.getElementById("result");
+const input = {
   "square": {
-    "perimeter": document.getElementById("perimeter_calculator"),
-    "area": document.getElementById("area_calculator"),
-  },
-  "triangle": {
-    "perimeter": document.getElementById("perimeter_calculator"),
-    "area": document.getElementById("area_calculator"),
+    "a": document.getElementById("square_a")
   },
   "circle": {
-    "perimeter": document.getElementById("perimeter_calculator"),
-    "area": document.getElementById("area_calculator"),
-  }
-} 
-const FORMULAS = {
+    "r": document.getElementById("circle_r")
+  },
+  "triangle": {
+    "a": document.getElementById("triangle_a"),
+    "b": document.getElementById("triangle_b"),
+    "c": document.getElementById("triangle_c"),
+  },
+}
+const selected = {
+  "figure": figures_buttons[0],
+  "type": types_buttons[0],
+  "input_box": inputs_boxes[0]
+}
+const formulas = {
   "square": {
     "perimeter": () => {
-      let measure = square_measure.value;
-      let square_perimeter = measure * 4;
+      const a = parseFloat(input.square.a.value);
+      const perimeter = a * 4;
 
-      return `${square_perimeter} cm`;
+      return `${perimeter.toFixed(2)} cm`;
     },
     "area": () => {
-      let measure = square_measure.value;
-      let square_area = Math.pow(measure, 2);
-      return `${square_area} cm²`;
+      const a = parseFloat(input.square.a.value);
+      const area = Math.pow(a, 2);
+
+      return `${area.toFixed(2)} cm²`;
     }
   },
   "triangle": {
     "perimeter": () => {
-      let a_side = parseFloat(triangle_a_side.value);
-      let b_side = parseFloat(triangle_c_side.value);
-      let base = parseFloat(triangle_base.value);
-      let triangle_perimeter = a_side + base + b_side;
-      return `${triangle_perimeter} cm`;
+      const a = parseFloat(input.triangle.a.value);
+      const b = parseFloat(input.triangle.b.value);
+      const c = parseFloat(input.triangle.c.value);
+      const perimeter = a + b + c;
+
+      return `${perimeter.toFixed(2)} cm`;
     },
     "area": () => {
-      let a_side = parseFloat(triangle_a_side.value);
-      let b_side = parseFloat(triangle_c_side.value);
-      let base = parseFloat(triangle_base.value);
-      let height = Math.sqrt(Math.pow(a_side, 2) - Math.pow((base/2), 2));
-      
-      let triangle_area = (height * base) / 2;
-      return `${triangle_area} cm²`;
+      const a = parseFloat(input.triangle.a.value);
+      const b = parseFloat(input.triangle.b.value);
+      const c = parseFloat(input.triangle.c.value);
+      const height = Math.sqrt(Math.pow(a, 2) - Math.pow((b/2), 2));
+      const area = (height * b) / 2;
+
+      return `${area.toFixed(2)} cm²`;
     }
   },
   "circle": {
     "perimeter": () => {
-      let radio = parseFloat(circle_radio.value);
-      let perimeter = (radio * 2) * PI;
+      const r = parseFloat(input.circle.r.value);
+      const perimeter = (r * 2) * PI;
 
       return `${perimeter.toFixed(2)} cm²`;
     },
     "area": () => {
-      let radio = parseFloat(circle_radio.value);
-      let area = Math.pow(radio, 2) * PI;
+      const r = parseFloat(input.circle.r.value);
+
+      let area = Math.pow(r, 2) * PI;
 
       return `${area.toFixed(2)} cm²`;
     }
   }
 }
 
-const printResult = result => {
-  calculator_result.innerHTML = result 
-};
+const resolveOperation = () => {
+  const figure = selected.figure.dataset.figure;
+  const type = selected.type.dataset.type;
+  const operationToResolve = formulas[figure][type];
+  try {
+    inputsVerify();
 
-const getFigure = () => {
-  for (let key in FIGURES) {
-    if(FIGURES[key].checked) {
-      return FIGURES[key].value;
+  } catch (error) {
+    result.innerText = error;
+    return;
+  }
+
+  result.innerText = operationToResolve();
+}
+
+const inputsVerify = () => {
+  const parentNode = selected.input_box;
+  const inputs = parentNode.querySelectorAll("INPUT");
+  let error = false;
+
+  inputs.forEach(input => {
+    if (input.value <= 0) {
+      input.parentNode.classList.add("input__container--invalid");
+      error = true;
+    } else {
+      input.parentNode.classList.remove("input__container--invalid");
     }
+  });
+
+  if(error) {
+    throw "Revise los campos";
   }
 }
 
-function getCalculatorType(figure) {
-  for (const key in CALCULATOR_TYPE[figure]) {
-    if(CALCULATOR_TYPE[figure][key].checked) {
-      return CALCULATOR_TYPE[figure][key].value;
+const updateFigureImage = () => {
+  figure_image.src = `../images/${selected.figure.dataset.figure}-img.svg`;
+}
+
+const updateInputBox = () => {
+  inputs_boxes.forEach(node => {
+    node.classList.add("ghost-box--hidden");
+    
+    if(node.dataset.figure === selected.figure.dataset.figure) {
+      node.classList.remove("ghost-box--hidden");
+      selected.input_box = node;
     }
-  }
-}
-const makeDescription = (figure, calculator_type) => {
-  return `Ingresa los datos correspondientes para cualcular el <strong>${calculator_type}</strong> de un <strong>${figure}</strong>.`
-}
-function testOp() {
-  let figure = getFigure();
-  let calculator_type = getCalculatorType(figure);
-  
-  let result = FORMULAS[figure][calculator_type];
-  printResult(result());
-}
-const renderROM = (figure, calculator_type) => {
-
-  NODE.figure_image.src = FIGURES_IMAGE[figure];
-
-  NODE.calculator_description.innerHTML = makeDescription(figure, calculator_type);
-
-  NODE.data_container.setAttribute("id", figure);
+  })
 
 }
-calculator_button.addEventListener("click", testOp);
 
-APP.addEventListener("input", event => {
-  let figure = getFigure();
-  let calculator_type = getCalculatorType(figure);
-
-  if(
-    event.target === FIGURES[figure] 
-    || event.target === CALCULATOR_TYPE[figure][calculator_type]) {
-    renderROM(figure, calculator_type);
-  }
+inputs.forEach(input => {
+  input.addEventListener("keyup", resolveOperation);
 })
+
+APP.addEventListener("click", e => {
+  const target = e.target;
+  
+  if(target.nodeName === "BUTTON") {
+    if(target.classList.contains("__figure_button__") && target != selected.figure) {
+      figures_buttons.forEach(node => {
+        node.classList.remove("selector__button--active");
+        if (node === target) {
+          node.classList.add("selector__button--active");
+          selected.figure = node;
+
+          updateFigureImage();
+          updateInputBox();
+        }
+      });
+    }
+
+    if(target.classList.contains("__type_button__") && target != selected.type) {
+      types_buttons.forEach(node => {
+        node.classList.remove("selector__button--active");
+        if (node === target) {
+          node.classList.add("selector__button--active");
+          selected.type = node;
+
+          resolveOperation();
+        }
+      });
+    }
+    
+  }
+});
